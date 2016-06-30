@@ -38,6 +38,20 @@ public class TweetsListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_tweets_list, parent, false);
         swipeContainer = (SwipeRefreshLayout) v.findViewById(R.id.swipeContainer);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                populateTimeline();
+                swipeContainer.setRefreshing(false);
+            }
+        });
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
+
         lvTweets = (ListView) v.findViewById(R.id.lvTweets);
         lvTweets.setAdapter(aTweets);
         lvTweets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,5 +81,9 @@ public class TweetsListFragment extends Fragment {
 
     public void addAll(List<Tweet> tweets){
         aTweets.addAll(tweets);
+    }
+
+    public void populateTimeline(){
+
     }
 }

@@ -29,31 +29,14 @@ public class HomeTimelineFragment extends TweetsListFragment{
         client = TwitterApplication.getRestClient();
         populateTimeline();
 
-        // Setup refresh listener which triggers new data loading
-
-        /*
-        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                // Your code to refresh the list here.
-                populateTimeline();
-                swipeContainer.setRefreshing(false);
-            }
-        });
-        // Configure the refreshing colors
-        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
-
-    */
     }
 
 
 
     //send api request
     //fill the list view
-    private void populateTimeline(){
+    @Override
+    public void populateTimeline(){
         client.getHomeTimeline(new JsonHttpResponseHandler(){
             //SUCCESS
 
