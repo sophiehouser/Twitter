@@ -37,6 +37,7 @@ public class HomeTimelineFragment extends TweetsListFragment{
     //fill the list view
     @Override
     public void populateTimeline(){
+        showProgressBar();
         client.getHomeTimeline(new JsonHttpResponseHandler(){
             //SUCCESS
 
@@ -49,6 +50,7 @@ public class HomeTimelineFragment extends TweetsListFragment{
                 //CREATE MODELS AND ADD THEM TO THE ADAPTER
                 //LOAD THE MODEL DATA INTO LIST VIEW
                 addAll(Tweet.fromJSONArray(json));
+                hideProgressBar();
 
             }
 
