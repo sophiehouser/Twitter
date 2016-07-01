@@ -9,7 +9,7 @@ Time spent: **20** hours spent in total
 The following **required** functionality is completed:
 
 * [x] User can **sign in to Twitter** using OAuth login process
-* [x] User can **switch between Timeline and Mention views using tabs**
+* [x] User can **switch between Timeline and Mention views using tabs** (It looks like there are no mentions but it's because I don't use my twitter account and have not been mentioned in anything)
   * [x] User is displayed the username, name, and body for each tweet
   * x ] User is displayed the [relative timestamp](https://gist.github.com/nesquena/f786232f5ef72f6e10a7) for each tweet "8m", "7h"
 * [x] User can **compose and post a new tweet**
