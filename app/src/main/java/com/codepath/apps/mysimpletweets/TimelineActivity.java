@@ -58,7 +58,9 @@ public class TimelineActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 // perform query here
-
+                Intent i = new Intent(TimelineActivity.this, SearchActivity.class);
+                i.putExtra("query", query);
+                startActivity(i);
                 // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
                 // see https://code.google.com/p/android/issues/detail?id=24599
                 searchView.clearFocus();
