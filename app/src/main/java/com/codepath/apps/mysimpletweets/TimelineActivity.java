@@ -49,6 +49,9 @@ public class TimelineActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_timeline, menu);
+        miActionProgressItem = menu.findItem(R.id.miActionProgress);
+        // Extract the action-view from the menu item
+        ProgressBar v =  (ProgressBar) MenuItemCompat.getActionView(miActionProgressItem);
         MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -142,21 +145,23 @@ public class TimelineActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // Store instance of the menu item containing progress
-        miActionProgressItem = menu.findItem(R.id.miActionProgress);
-        // Extract the action-view from the menu item
-        ProgressBar v =  (ProgressBar) MenuItemCompat.getActionView(miActionProgressItem);
+
         // Return to finish
         return super.onPrepareOptionsMenu(menu);
     }
 
     public void showProgressBar() {
-        // Show progress item
-        miActionProgressItem.setVisible(true);
+        if (miActionProgressItem != null) {
+            // Show progress item
+            miActionProgressItem.setVisible(true);
+        }
     }
 
     public void hideProgressBar() {
         // Hide progress item
-        miActionProgressItem.setVisible(false);
+        if (miActionProgressItem != null) {
+            miActionProgressItem.setVisible(false);
+        }
     }
 
 }

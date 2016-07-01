@@ -1,10 +1,12 @@
 package com.codepath.apps.mysimpletweets.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 
+import com.codepath.apps.mysimpletweets.TimelineActivity;
 import com.codepath.apps.mysimpletweets.TwitterApplication;
 import com.codepath.apps.mysimpletweets.TwitterClient;
 import com.codepath.apps.mysimpletweets.models.Tweet;
@@ -22,6 +24,7 @@ public class HomeTimelineFragment extends TweetsListFragment{
 
     private TwitterClient client;
     private SwipeRefreshLayout swipeContainer;
+    private TimelineActivity activity;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,13 +34,17 @@ public class HomeTimelineFragment extends TweetsListFragment{
 
     }
 
-
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.activity = (TimelineActivity) context;
+    }
 
     //send api request
     //fill the list view
     @Override
     public void populateTimeline(){
-        showProgressBar();
+        activity.showProgressBar();
         client.getHomeTimeline(new JsonHttpResponseHandler(){
             //SUCCESS
 
@@ -50,7 +57,7 @@ public class HomeTimelineFragment extends TweetsListFragment{
                 //CREATE MODELS AND ADD THEM TO THE ADAPTER
                 //LOAD THE MODEL DATA INTO LIST VIEW
                 addAll(Tweet.fromJSONArray(json));
-                hideProgressBar();
+                activity.hideProgressBar();
 
             }
 
