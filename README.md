@@ -1,6 +1,8 @@
-# Project 3 - Twitter Client
+# Project 3 - Twitter Client 
 
 Twitter Client is an android app that allows a user to view home and mentions timelines, view user profiles with user timelines, as well as compose and post a new tweet. The app utilizes [Twitter REST API](https://dev.twitter.com/rest/public).
+
+Project for an Android dev intensive I did for Facebook's FBU summer program.
 
 Time spent: **20** hours spent in total
 
@@ -53,10 +55,6 @@ Here's a walkthrough of implemented user stories:
 <img src='https://github.com/sophiehouser/Twitter/blob/master/twitter2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
-
-## Notes
-
-Describe any challenges encountered while building the app.
 
 ## Open-source libraries used
 
